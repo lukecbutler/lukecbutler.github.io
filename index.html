@@ -2,20 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <!-- Disable user zooming on mobile to prevent layout jump -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
   <title>Dobby the Elf</title>
   <link rel="stylesheet" href="styles.css" />
 
   <style>
-    /* Ensure full height on iPhone Safari */
     html, body {
       height: 100%;
       margin: 0;
       padding: 0;
-      overflow: hidden; /* prevents weird scrolling issues */
+      overflow: hidden;
+      font-size: 16px; /* Ensure inputs don’t trigger zoom */
     }
 
-    /* Make iframe fill the safe viewport */
     div {
       position: fixed;
       top: env(safe-area-inset-top);
@@ -30,6 +30,11 @@
       width: 100%;
       height: 100%;
       border: none;
+    }
+
+    /* Extra: If iframe content is yours, force input fonts inside it (optional) */
+    iframe {
+      font-size: 16px;
     }
   </style>
 </head>
